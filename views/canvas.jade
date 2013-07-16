@@ -1,0 +1,20 @@
+//
+   Created with JetBrains WebStorm.
+   User: user
+   Date: 13. 7. 16
+   Time: 오전 11:28
+   To change this template use File | Settings | File Templates.
+extends layout
+
+block content
+    script(src='/javascripts/canvas.js')
+    h1= "Real time web Chat"
+
+    div(class="chatModule")
+        div(class="chat")
+//div(class="chatPeopleDiv")
+        div(class="chatPeople")
+    form(action='', method='post')
+    input(type="text", class="name", placeholder="이름")
+    input(type="text", id="message" class="content", placeholder="내용")
+    input(type="button", name="입력", value="입력", class="sendBtn")

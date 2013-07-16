@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  script(src='/javascripts/chat.js')
+  script(src='/javascripts/canvas.js')
+  h1= "Real time web Chat"
+
+  div(class="webSocketAll")
+    div(class="chatModule")
+        div(class="chatList")
+            div(class="chat")
+            div(class="chatPeopleDiv")
+                div(class="chatPeople")
+        div
+            input(type="text", class="name", placeholder="이름")
+            input(type="text", class="content", placeholder="내용")
+            input(type="button", name="입력", value="입력", class="sendBtn")
+    div(class="canvasModule")
+        table(border = "10")
+            tr
+                td
+                    canvas(class="draw")
