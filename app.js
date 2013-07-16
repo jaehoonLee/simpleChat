@@ -41,9 +41,18 @@ io.sockets.on('connection', function(socket){
     socket.on('send', function(data) {
         io.sockets.emit('message'. data);
     })
-    socket.on('message', function(data)
-    {
-
+    socket.on('message', function(data){
         socket.broadcast.emit('message', {name : data.name, message : data.message});
+    });
+
+    socket.on('draw', function(data){
+        socket.broadcast.emit('draw', {
+            width : data.width,
+            color : data.color,
+            x1 : data.x1,
+            y1 : data.y1,
+            x2 : data.x2,
+            y2 : data.y2
+        });
     });
 });

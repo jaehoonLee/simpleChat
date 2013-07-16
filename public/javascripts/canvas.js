@@ -1,14 +1,3 @@
-/**
- * Created with JetBrains WebStorm.
- * User: user
- * Date: 13. 7. 16
- * Time: 오전 11:56
- * To change this template use File | Settings | File Templates.
- */
-
-
-
-
 $(document).ready(function()
     {
         function Point(event, target)
@@ -22,15 +11,33 @@ $(document).ready(function()
         var isDown = false;
         var color = '#000000';
         var width = 2;
-
-
         var newPoint, oldPoint;
+
+        var socket = io.connect("http://127.0.0.1:3000/") ;
+        socket.on('connect', function()
+        {
+            console.log("connected2");
+        });
+
+        socket.on('draw', function(data)
+        {
+            context.lineWidth = data.width;
+            context.strokeStyle = data.color;
+            context.beginPath();
+            context.moveTo(data.x1, data.y1);
+            context.lineTo(data.x2, data.y2);
+            context.stroke();
+        });
+
         $('#canvas').mousedown(function(event)
             {
                 console.log("mousedown");
                 isDown = true;
 
                 oldPoint = new Point(event, this);
+
+                context.lineWidth = width;
+                context.strokeStyle = color;
             }
         ).mouseup(function()
             {
@@ -41,24 +48,22 @@ $(document).ready(function()
             {
                 if(isDown)
                 {
-                console.log("mouse move " + oldPoint.x);
-                newPoint = new Point(event, this);
 
-                context.lineWidth = width;
-                context.strokeStyle = color;
+                newPoint = new Point(event, this);
                 context.beginPath();
                 context.moveTo(oldPoint.x, oldPoint.y);
                 context.lineTo(newPoint.x, newPoint.y);
                 context.stroke();
-//                socket.emit('draw',
-//                    {
-//                       width : width,
-//                       color : color,
-//                       x1 : oldPoint.x,
-//                       y2 : oldPoint.y,
-//                       x2 : newPoint.x,
-//                       y2 : newPoint.y
-//                    });
+                socket.emit('draw',
+                    {
+                       width : width,
+                       color : color,
+                       x1 : oldPoint.x,
+                       y1 : oldPoint.y,
+                       x2 : newPoint.x,
+                       y2 : newPoint.y
+                    });
+                console.log("mouse move (" + oldPoint.x + "," + oldPoint.y + "), (" + newPoint.x + ", " + newPoint.y + ")");
                 oldPoint = newPoint
                 }
             }
