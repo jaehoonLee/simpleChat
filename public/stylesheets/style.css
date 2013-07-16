@@ -21,13 +21,13 @@ a {
     height:220px;
 }
 
-
 .chat {
    float:left;
    width:300px;
    height:200px;
    overflow:auto;
    border:1px solid #000;
+
 }
 
 .chatPeopleDiv

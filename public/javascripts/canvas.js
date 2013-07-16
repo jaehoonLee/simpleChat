@@ -63,7 +63,7 @@ $(document).ready(function()
                        x2 : newPoint.x,
                        y2 : newPoint.y
                     });
-                console.log("mouse move (" + oldPoint.x + "," + oldPoint.y + "), (" + newPoint.x + ", " + newPoint.y + ")");
+//                console.log("mouse move (" + oldPoint.x + "," + oldPoint.y + "), (" + newPoint.x + ", " + newPoint.y + ")");
                 oldPoint = newPoint
                 }
             }

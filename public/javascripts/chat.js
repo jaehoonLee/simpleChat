@@ -25,6 +25,9 @@ $(document).ready(function ()
             $('.chat').append(data.message + '</br>')
         else
             $('.chat').append(name + " : " + data.message + '</br>')
+
+        var elem = document.getElementById('chat');
+        elem.scrollTop = elem.scrollHeight;
     });
 
     $('.sendBtn').click(function()
@@ -39,6 +42,9 @@ $(document).ready(function ()
             name : name,
             message : message
         });
+
+        var elem = document.getElementById('chat');
+        elem.scrollTop = elem.scrollHeight;
     });
 
     $(".content").keypress(function(e){
