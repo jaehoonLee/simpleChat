@@ -55,4 +55,18 @@ io.sockets.on('connection', function(socket){
             y2 : data.y2
         });
     });
+
+    socket.on('senddata', function(data){
+        socket.broadcast.emit('senddata', {
+            strokeWidth : data.strokeWidth,
+            strokeColor : data.strokeColor,
+            fillColor : data.fillColor,
+            authorName : data.authorName,
+            authorId : data.authorId,
+            id : data.id,
+            isFill : data.isFill,
+            isErase : data.isErase,
+            sendQ : data.sendQ
+        });
+    });
 });
