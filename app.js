@@ -45,7 +45,10 @@ io.sockets.on('connection', function(socket){
         socket.broadcast.emit('message', {name : data.name, message : data.message});
     });
 
+    var count = 0
     socket.on('draw', function(data){
+
+        console.log(count++);
         socket.broadcast.emit('draw', {
             width : data.width,
             color : data.color,
