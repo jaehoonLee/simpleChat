@@ -29,6 +29,7 @@ $(document).ready(function ()
 
         var elem = document.getElementById('chat');
         elem.scrollTop = elem.scrollHeight;
+        $('.content').val('');
     });
 
     $('.sendBtn').click(function()
@@ -46,6 +47,7 @@ $(document).ready(function ()
 
         var elem = document.getElementById('chat');
         elem.scrollTop = elem.scrollHeight;
+        $('.content').val('');
     });
 
     $(".content").keypress(function(e){
