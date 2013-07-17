@@ -36,17 +36,25 @@ server.listen(app.get('port'), function(){
 });
 
 var io = require('socket.io').listen(server)
+var chatArr = new Array();
+var pointArr = new Array();
+
 io.sockets.on('connection', function(socket){
     socket.emit('message', {message : 'welcome to the chat'});
+    socket.emit('messageSync', {chatArr : chatArr, pointArr : pointArr});
     socket.on('send', function(data) {
         io.sockets.emit('message'. data);
     })
     socket.on('message', function(data){
+
+        chatArr.push(data);
         socket.broadcast.emit('message', {name : data.name, message : data.message});
     });
 
     var count = 0
     socket.on('draw', function(data){
+
+        pointArr.push(data);
 
         console.log(count++);
         socket.broadcast.emit('draw', {

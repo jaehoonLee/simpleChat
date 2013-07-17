@@ -7,11 +7,15 @@
  */
 $(document).ready(function ()
 {
-//    var socket = io.connect("http://127.0.0.1:3000/") ;
-    var socket = io.connect("http://jhun88.cafe24.com:3000/") ;
-    socket.on('news', function (data) {
-        console.log(data);
-        socket.emit('my other event', { my: 'data' });
+    var socket = io.connect("http://127.0.0.1:3000/") ;
+//    var socket = io.connect("http://jhun88.cafe24.com:3000/") ;
+    socket.on('messageSync', function (data) {
+        for (var i = 0 ; i < data.chatArr.length; i++)
+        {
+            var name = data.chatArr[i].name
+            var message = data.chatArr[i].message
+            $('.chat').append(name + " : " + message + '</br>')
+        }
     });
 
     socket.on('connect', function()
