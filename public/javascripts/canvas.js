@@ -20,7 +20,8 @@ $(document).ready(function()
             console.log("connected2");
         });
 
-        socket.on('messageSync', function (data) {
+        socket.on('canvasSync', function (data) {
+            console.log(data);
             for (var i = 0 ; i < data.pointArr.length; i++)
             {
                 var x1 = data.pointArr[i].x1

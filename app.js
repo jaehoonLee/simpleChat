@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -35,28 +34,69 @@ server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
+
+// redis example
+var redis = require("redis");
+var client = redis.createClient();
+
+client.on("error", function(err) {
+    console.log("Error " + err)
+});
+
+//client.set('HELLO', [1, 2, 3], redis.print);
+//client.set('HELLO', "WORLD23", redis.print);
+//client.get('HELLO' ,function(err, reply){
+//    console.log(reply[0]);
+//});
+
+
+// socket.io example
 var io = require('socket.io').listen(server)
 var chatArr = new Array();
 var pointArr = new Array();
 
 io.sockets.on('connection', function(socket){
+
     socket.emit('message', {message : 'welcome to the chat'});
-    socket.emit('messageSync', {chatArr : chatArr, pointArr : pointArr});
+
+    client.get('chatSync' ,function(err, reply){
+        if(reply != null)
+            chatArr  = reply
+        else
+            chatArr = new Array();
+
+        client.set('chatSync', chatArr, redis.print)
+        socket.emit('chatSync', {chatArr : chatArr});
+    });
+
+    client.get('canvasSync' ,function(err, reply){
+        if(reply != null)
+            pointArr  = reply
+        else
+            pointArr = new Array();
+
+        client.set('canvasSync', pointArr, redis.print)
+        socket.emit('canvasSync', {pointArr : pointArr});
+    });
+
     socket.on('send', function(data) {
         io.sockets.emit('message'. data);
     })
     socket.on('message', function(data){
-
-        chatArr.push(data);
         socket.broadcast.emit('message', {name : data.name, message : data.message});
+
+        client.get('chatSync' ,function(err, reply){
+            if(reply != null)
+                chatArr  = reply
+            else
+                chatArr = new Array();
+        });
+        chatArr.push(data);
+        client.set('chatSync', chatArr, redis.print);
     });
 
     var count = 0
     socket.on('draw', function(data){
-
-        pointArr.push(data);
-
-        console.log(count++);
         socket.broadcast.emit('draw', {
             width : data.width,
             color : data.color,
@@ -65,6 +105,21 @@ io.sockets.on('connection', function(socket){
             x2 : data.x2,
             y2 : data.y2
         });
+
+        client.get('canvasSync' ,function(err, reply){
+            if(reply == null)
+                reply = []
+
+            if(pointArr != null)
+                reply.concat(pointArr);
+            pointArr = new Array();
+            client.set('canvasSync', reply, redis.print);
+            console.log("b:" + reply);
+        })
+//        console.log("AAA");
+//        console.log("a:" + pointArr);
+        pointArr.concat(data);
+
     });
 
     socket.on('senddata', function(data){
@@ -81,3 +136,6 @@ io.sockets.on('connection', function(socket){
         });
     });
 });
+
+
+
