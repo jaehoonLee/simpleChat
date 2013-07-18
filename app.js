@@ -60,20 +60,22 @@ io.sockets.on('connection', function(socket){
     socket.emit('message', {message : 'welcome to the chat'});
 
     client.get('chatSync' ,function(err, reply){
-        if(reply != null)
-            chatArr  = reply
-        else
+        console.log(reply == '');
+        if(reply == null | reply == '')
             chatArr = new Array();
+        else
+            chatArr =  reply
 
         client.set('chatSync', chatArr, redis.print)
         socket.emit('chatSync', {chatArr : chatArr});
     });
 
     client.get('canvasSync' ,function(err, reply){
-        if(reply != null)
-            pointArr  = reply
-        else
+        console.log(reply == '');
+        if(reply == null | reply == '')
             pointArr = new Array();
+        else
+            pointArr =  reply
 
         client.set('canvasSync', pointArr, redis.print)
         socket.emit('canvasSync', {pointArr : pointArr});
@@ -108,13 +110,13 @@ io.sockets.on('connection', function(socket){
 
         client.get('canvasSync' ,function(err, reply){
             if(reply == null)
-                reply = []
+                reply = new Array();
 
             if(pointArr != null)
                 reply.concat(pointArr);
             pointArr = new Array();
             client.set('canvasSync', reply, redis.print);
-            console.log("b:" + reply);
+            console.log("b:" + reply + " : " + pointArr);
         })
 //        console.log("AAA");
 //        console.log("a:" + pointArr);
