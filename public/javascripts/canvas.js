@@ -53,6 +53,24 @@ $(document).ready(function()
         });
 
         socket.on('senddata', function(data){
+
+
+            if(data.points.length == 1)
+            {
+                var x = data.points[0].x;
+                var y = data.points[0].y;
+
+                context.lineWidth = width;
+                context.strokeStyle = color;
+                context.beginPath();
+                context.moveTo(oldPoint.x, oldPoint.y);
+                context.lineTo(x, y);
+                context.stroke();
+                oldPoint = data.points[i];
+
+                return;
+            }
+
             var oldPoint = data.points[0];
             for(var i = 1 ; i < data.points.length; i++)
             {

@@ -10,7 +10,7 @@
     <file path="/chat.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374052940838" ignored="false" />
     <file path="/layout.jade" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1373709776455" ignored="false" />
     <file path="/ioSetting.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1373709560742" ignored="false" />
-    <file path="/canvas.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374240566628" ignored="false" />
+    <file path="/canvas.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374253927033" ignored="false" />
     <file path="/canvas.jade" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1373943412205" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +34,7 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="56" selection-start="957" selection-end="957" vertical-scroll-proportion="0.0">
+            <state line="72" column="64" selection-start="2089" selection-end="2089" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -43,7 +43,7 @@
       <file leaf-file-name="canvas.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/canvas.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="34" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0">
+            <state line="10" column="3" selection-start="229" selection-end="596" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -52,7 +52,7 @@
       <file leaf-file-name="canvas.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/canvas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="45" selection-start="1868" selection-end="1868" vertical-scroll-proportion="0.49430895">
+            <state line="68" column="16" selection-start="2279" selection-end="2279" vertical-scroll-proportion="-0.79186994">
               <folding />
             </state>
           </provider>
@@ -61,7 +61,7 @@
       <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -451,7 +451,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="14" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -492,27 +492,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/canvas.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="34" selection-start="495" selection-end="495" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="4" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="29" selection-start="249" selection-end="249" vertical-scroll-proportion="0.0">
@@ -541,16 +520,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/canvas.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="3" selection-start="229" selection-end="596" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="4" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="56" selection-start="957" selection-end="957" vertical-scroll-proportion="0.0">
+        <state line="72" column="64" selection-start="2089" selection-end="2089" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/canvas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="45" selection-start="1868" selection-end="1868" vertical-scroll-proportion="0.49430895">
+        <state line="68" column="16" selection-start="2279" selection-end="2279" vertical-scroll-proportion="-0.79186994">
           <folding />
         </state>
       </provider>
