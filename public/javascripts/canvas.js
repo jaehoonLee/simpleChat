@@ -21,35 +21,24 @@ $(document).ready(function()
         });
 
         socket.on('canvasSync', function (data) {
-//            for (var i = 0 ; i < data.pointArr.length; i++)
-//            {
-//                var x1 = data.pointArr[i].x1
-//                var y1 = data.pointArr[i].y1
-//                var x2 = data.pointArr[i].x2
-//                var y2 = data.pointArr[i].y2
-//
-//                context.lineWidth = width;
-//                context.strokeStyle = color;
-//                context.beginPath();
-//                context.moveTo(x1, y1);
-//                context.lineTo(x2, y2);
-//                context.stroke();
-            var firstPoint = null;
             for (var i = 0 ; i < data.pointArr.length; i++)
             {
-                var x1 = data.pointArr[i].sendQ[0].x;
-                var y1 = data.pointArr[i].sendQ[0].y;
-                var x2 = data.pointArr[i].sendQ[1].x;
-                var y2 = data.pointArr[i].sendQ[1].y;
+                var pointDatas = data.pointArr[i];
+                var oldPoint = pointDatas.points[0];
+                console.log(pointDatas.points[0].x);
+                for(var j = 1 ; j < pointDatas.points.length; j++)
+                {
+                    var x = pointDatas.points[j].x;
+                    var y = pointDatas.points[j].y;
 
-                context.lineWidth = width;
-                context.strokeStyle = color;
-                context.beginPath();
-//                        context.moveTo(firstPoint.x, firstPoint.y); // 간격이 있을텐데, 간격에 딸 씌
-                context.moveTo(x1, y1);
-                context.lineTo(x2, y2);
-                context.stroke();
-
+                    context.lineWidth = width;
+                    context.strokeStyle = color;
+                    context.beginPath();
+                    context.moveTo(oldPoint.x, oldPoint.y);
+                    context.lineTo(x, y);
+                    context.stroke();
+                    oldPoint = pointDatas.points[j];
+                }
             }
         });
 
@@ -64,19 +53,20 @@ $(document).ready(function()
         });
 
         socket.on('senddata', function(data){
-                console.log(data);
-                var x1 = data.sendQ[0].x;
-                var y1 = data.sendQ[0].y;
-                var x2 = data.sendQ[1].x;
-                var y2 = data.sendQ[1].y;
+            var oldPoint = data.points[0];
+            for(var i = 1 ; i < data.points.length; i++)
+            {
+                var x = data.points[i].x;
+                var y = data.points[i].y;
 
                 context.lineWidth = width;
                 context.strokeStyle = color;
                 context.beginPath();
-//                        context.moveTo(firstPoint.x, firstPoint.y); // 간격이 있을텐데, 간격에 딸 씌
-                context.moveTo(x1, y1);
-                context.lineTo(x2, y2);
+                context.moveTo(oldPoint.x, oldPoint.y);
+                context.lineTo(x, y);
                 context.stroke();
+                oldPoint = data.points[i];
+            }
         });
 
         $('#canvas').mousedown(function(event)
@@ -123,7 +113,7 @@ $(document).ready(function()
                        id : '0',
                        isFill : false,
                        isErase : false,
-                       sendQ : [{x : oldPoint.x, y:oldPoint.y}, {x : newPoint.x, y : newPoint.y}]
+                       points : [{x : oldPoint.x, y:oldPoint.y}, {x : newPoint.x, y : newPoint.y}]
                      });
 //                console.log("mouse move (" + oldPoint.x + "," + oldPoint.y + "), (" + newPoint.x + ", " + newPoint.y + ")");
                 oldPoint = newPoint

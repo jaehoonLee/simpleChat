@@ -35,13 +35,12 @@ server.listen(app.get('port'), function(){
 
 
 // redis example
-var redis = require("redis");
-var client = redis.createClient();
-
-client.on("error", function(err) {
-    console.log("Error " + err)
-});
-
+//var redis = require("redis");
+//var client = redis.createClient();
+//
+//client.on("error", function(err) {
+//    console.log("Error " + err)
+//});
 //client.set('HELLO', [1, 2, 3], redis.print);
 //client.set('HELLO', "WORLD23", redis.print);
 //client.get('HELLO' ,function(err, reply){
@@ -75,7 +74,7 @@ io.sockets.on('connection', function(socket){
             id : data.id,
             isFill : data.isFill,
             isErase : data.isErase,
-            sendQ : data.sendQ
+            points : data.points
         });
         pointArr.push(data);
     });
