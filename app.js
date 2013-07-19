@@ -65,19 +65,6 @@ io.sockets.on('connection', function(socket){
         chatArr.push(data);
     });
 
-    var count = 0
-//    socket.on('draw', function(data){
-//        socket.broadcast.emit('draw', {
-//            width : data.width,
-//            color : data.color,
-//            x1 : data.x1,
-//            y1 : data.y1,
-//            x2 : data.x2,
-//            y2 : data.y2
-//        });
-//        pointArr.push(data);
-//    });
-
     socket.on('senddata', function(data){
         socket.broadcast.emit('senddata', {
             strokeWidth : data.strokeWidth,

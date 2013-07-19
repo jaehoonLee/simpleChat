@@ -42,8 +42,6 @@ $(document).ready(function()
                 var x2 = data.pointArr[i].sendQ[1].x;
                 var y2 = data.pointArr[i].sendQ[1].y;
 
-
-                console.log("not zero:" + firstPoint);
                 context.lineWidth = width;
                 context.strokeStyle = color;
                 context.beginPath();
@@ -66,14 +64,19 @@ $(document).ready(function()
         });
 
         socket.on('senddata', function(data){
-            context.lineWidth = data.strokeWidth;
-            context.strokeStyle = data.strokeColor;
-            context.beginPath();
-            context.moveTo(oldPoint.x, oldPoint.y);
-            context.lineTo(data.sendQ[0].x2, data.sendQ[0].y2);
-            context.stroke();
+                console.log(data);
+                var x1 = data.sendQ[0].x;
+                var y1 = data.sendQ[0].y;
+                var x2 = data.sendQ[1].x;
+                var y2 = data.sendQ[1].y;
 
-            oldPoint = newPoint
+                context.lineWidth = width;
+                context.strokeStyle = color;
+                context.beginPath();
+//                        context.moveTo(firstPoint.x, firstPoint.y); // 간격이 있을텐데, 간격에 딸 씌
+                context.moveTo(x1, y1);
+                context.lineTo(x2, y2);
+                context.stroke();
         });
 
         $('#canvas').mousedown(function(event)
