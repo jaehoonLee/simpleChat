@@ -78,4 +78,11 @@ io.sockets.on('connection', function(socket){
         });
         pointArr.push(data);
     });
+
+    socket.on('clear', function(data)
+    {
+        console.log("HHH");
+        pointArr = [];
+        socket.emit('clear');
+    });
 });

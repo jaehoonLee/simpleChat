@@ -87,6 +87,13 @@ $(document).ready(function()
             }
         });
 
+        socket.on('clear', function(data)
+        {
+               console.log("a");
+               context.clearRect(0, 0, 600, 400);
+        });
+
+
         $('#canvas').mousedown(function(event)
             {
                 console.log("mousedown");
@@ -138,5 +145,11 @@ $(document).ready(function()
                 }
             }
         );
+
+
+        $('.clearBtn').click(function()
+        {
+            socket.emit('clear');
+        });
     }
 )
