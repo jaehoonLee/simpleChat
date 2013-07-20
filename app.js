@@ -81,8 +81,8 @@ io.sockets.on('connection', function(socket){
 
     socket.on('clear', function(data)
     {
-        console.log("HHH");
         pointArr = [];
+        socket.broadcast.emit('clear');
         socket.emit('clear');
     });
 });
