@@ -117,7 +117,8 @@ $(document).ready(function()
 
         $('#canvas').mousedown(function(event)
             {
-                drawId =  Math.random().toString(36).substr(2,9);
+                drawId =  parseInt(Math.random() * Math.pow(10,10));
+                console.log(drawId);
                 isDown = true;
 
                 oldPoint = new Point(event, this);
