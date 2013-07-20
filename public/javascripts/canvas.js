@@ -12,6 +12,9 @@ $(document).ready(function()
         var color = '#000000';
         var width = 2;
         var newPoint, oldPoint;
+        var oldPointDatas = null;
+        var oldPointData = null;
+        var drawId = null;
 
         var socket = io.connect("http://127.0.0.1:3000/") ;
 //        var socket = io.connect("http://jhun88.cafe24.com:3000/") ;
@@ -24,8 +27,22 @@ $(document).ready(function()
             for (var i = 0 ; i < data.pointArr.length; i++)
             {
                 var pointDatas = data.pointArr[i];
-                var oldPoint = pointDatas.points[0];
-                console.log(pointDatas.points[0].x);
+                if(pointDatas.points.length != 0)
+                {
+                    if(oldPoint != null && oldPointDatas.id == pointDatas.id)
+                    {
+                        var x = pointDatas.points[0].x;
+                        var y = pointDatas.points[0].y;
+
+                        context.lineWidth = width;
+                        context.strokeStyle = color;
+                        context.beginPath();
+                        context.moveTo(oldPoint.x, oldPoint.y);
+                        context.lineTo(x, y);
+                        context.stroke();
+                    }
+                }
+                oldPoint = pointDatas.points[0];
                 for(var j = 1 ; j < pointDatas.points.length; j++)
                 {
                     var x = pointDatas.points[j].x;
@@ -39,7 +56,9 @@ $(document).ready(function()
                     context.stroke();
                     oldPoint = pointDatas.points[j];
                 }
+                oldPointDatas = pointDatas;
             }
+
         });
 
         socket.on('draw', function(data)
@@ -54,24 +73,26 @@ $(document).ready(function()
 
         socket.on('senddata', function(data){
 
-
-            if(data.points.length == 1)
+            if(data.points.length != 0 && oldPointData != null)
             {
-                var x = data.points[0].x;
-                var y = data.points[0].y;
+//                console.log("oldPoint:" + oldPointData.id+ ":" + data.id)  ;
+                console.log("oldPoint:" + oldPoint + ":" + oldPointData.id+ ":" + data.id);
+                if(oldPoint != null && oldPointData.id == data.id)
+                {
+                    console.log("oldPoint");
+                    var x = data.points[0].x;
+                    var y = data.points[0].y;
 
-                context.lineWidth = width;
-                context.strokeStyle = color;
-                context.beginPath();
-                context.moveTo(oldPoint.x, oldPoint.y);
-                context.lineTo(x, y);
-                context.stroke();
-                oldPoint = data.points[i];
-
-                return;
+                    context.lineWidth = width;
+                    context.strokeStyle = color;
+                    context.beginPath();
+                    context.moveTo(oldPoint.x, oldPoint.y);
+                    context.lineTo(x, y);
+                    context.stroke();
+                }
             }
 
-            var oldPoint = data.points[0];
+            oldPoint = data.points[0];
             for(var i = 1 ; i < data.points.length; i++)
             {
                 var x = data.points[i].x;
@@ -85,18 +106,18 @@ $(document).ready(function()
                 context.stroke();
                 oldPoint = data.points[i];
             }
+            oldPointData = data;
         });
 
         socket.on('clear', function(data)
         {
-               console.log("a");
-               context.clearRect(0, 0, 600, 400);
+              context.clearRect(0, 0, 600, 400);
         });
 
 
         $('#canvas').mousedown(function(event)
             {
-                console.log("mousedown");
+                drawId =  Math.random().toString(36).substr(2,9);
                 isDown = true;
 
                 oldPoint = new Point(event, this);
@@ -135,7 +156,7 @@ $(document).ready(function()
                        fillColor : color,
                        authorName : 'jh',
                        authorId : '0',
-                       id : '0',
+                       id : drawId,
                        isFill : false,
                        isErase : false,
                        points : [{x : oldPoint.x, y:oldPoint.y}, {x : newPoint.x, y : newPoint.y}]
