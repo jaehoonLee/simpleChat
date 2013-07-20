@@ -1,8 +1,10 @@
 extends layout
 
 block content
+  script(src='/javascripts/farbtastic.js')
   script(src='/javascripts/chat.js')
   script(src='/javascripts/canvas.js')
+
   h1= "Real time web Chat"
 
   div(class="webSocketAll")
@@ -19,5 +21,10 @@ block content
         table(border = "10")
             tr
                 td
-                    canvas(class="draw", id="canvas", width="600", height="400")
+                    canvas(class="draw", id="canvas", width="2000", height="2000")
+                td
+                    input(type="range", min="1", max="100", value="1", onchange="showValue(this.value)")
+                    span(id="range") 1
+                    label(id="lineWidth")
+                    div(id="colorpicker")
                     input(type="button", name="새로고침", value="새로고침", class="clearBtn")

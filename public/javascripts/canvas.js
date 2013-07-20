@@ -1,3 +1,6 @@
+var color = '#000000';
+var width = 1;
+
 $(document).ready(function()
     {
         function Point(event, target)
@@ -9,12 +12,12 @@ $(document).ready(function()
         var canvas =  document.getElementById('canvas');
         var context = canvas.getContext('2d');
         var isDown = false;
-        var color = '#000000';
-        var width = 2;
+
         var newPoint, oldPoint;
         var oldPointDatas = null;
         var oldPointData = null;
         var drawId = null;
+        var ratio = 2;
 
         var socket = io.connect("http://127.0.0.1:3000/") ;
 //        var socket = io.connect("http://jhun88.cafe24.com:3000/") ;
@@ -34,11 +37,11 @@ $(document).ready(function()
                         var x = pointDatas.points[0].x;
                         var y = pointDatas.points[0].y;
 
-                        context.lineWidth = width;
-                        context.strokeStyle = color;
+                        context.lineWidth = pointDatas.strokeWidth;
+                        context.strokeStyle = pointDatas.strokeColor;
                         context.beginPath();
-                        context.moveTo(oldPoint.x, oldPoint.y);
-                        context.lineTo(x, y);
+                        context.moveTo(oldPoint.x * ratio, oldPoint.y * ratio);
+                        context.lineTo(x * ratio, y * ratio);
                         context.stroke();
                     }
                 }
@@ -48,11 +51,11 @@ $(document).ready(function()
                     var x = pointDatas.points[j].x;
                     var y = pointDatas.points[j].y;
 
-                    context.lineWidth = width;
-                    context.strokeStyle = color;
+                    context.lineWidth = pointDatas.strokeWidth;
+                    context.strokeStyle = pointDatas.strokeColor;
                     context.beginPath();
-                    context.moveTo(oldPoint.x, oldPoint.y);
-                    context.lineTo(x, y);
+                    context.moveTo(oldPoint.x * ratio, oldPoint.y * ratio);
+                    context.lineTo(x * ratio, y * ratio);
                     context.stroke();
                     oldPoint = pointDatas.points[j];
                 }
@@ -83,11 +86,11 @@ $(document).ready(function()
                     var x = data.points[0].x;
                     var y = data.points[0].y;
 
-                    context.lineWidth = width;
-                    context.strokeStyle = color;
+                    context.lineWidth = data.strokeWidth;
+                    context.strokeStyle = data.strokeColor;
                     context.beginPath();
-                    context.moveTo(oldPoint.x, oldPoint.y);
-                    context.lineTo(x, y);
+                    context.moveTo(oldPoint.x * ratio, oldPoint.y * ratio);
+                    context.lineTo(x * ratio, y * ratio);
                     context.stroke();
                 }
             }
@@ -98,11 +101,11 @@ $(document).ready(function()
                 var x = data.points[i].x;
                 var y = data.points[i].y;
 
-                context.lineWidth = width;
-                context.strokeStyle = color;
+                context.lineWidth = data.strokeWidth;
+                context.strokeStyle = data.strokeColor;
                 context.beginPath();
-                context.moveTo(oldPoint.x, oldPoint.y);
-                context.lineTo(x, y);
+                context.moveTo(oldPoint.x * ratio, oldPoint.y * ratio);
+                context.lineTo(x * ratio, y * ratio);
                 context.stroke();
                 oldPoint = data.points[i];
             }
@@ -138,8 +141,8 @@ $(document).ready(function()
 
                 newPoint = new Point(event, this);
                 context.beginPath();
-                context.moveTo(oldPoint.x, oldPoint.y);
-                context.lineTo(newPoint.x, newPoint.y);
+                context.moveTo(oldPoint.x * 2, oldPoint.y * 2);
+                context.lineTo(newPoint.x * 2, newPoint.y * 2);
                 context.stroke();
 //                socket.emit('draw',
 //                    {
@@ -173,5 +176,19 @@ $(document).ready(function()
         {
             socket.emit('clear');
         });
+
+        $('#colorpicker').farbtastic(function(data)
+        {
+            color = data;
+            console.log(data);
+        });
+
+
     }
 )
+
+function showValue(newValue)
+{
+    width = newValue;
+    document.getElementById("range").innerHTML=newValue;
+}
