@@ -17,6 +17,7 @@ $(document).ready(function()
         var oldPointDatas = null;
         var oldPointData = null;
         var drawId = null;
+        var authorId = null;
         var ratio = 2;
 
         var socket = io.connect("http://127.0.0.1:3000/") ;
@@ -121,6 +122,7 @@ $(document).ready(function()
         $('#canvas').mousedown(function(event)
             {
                 drawId =  parseInt(Math.random() * Math.pow(10,10));
+                authorId= parseInt(Math.random() * Math.pow(10,10));
                 console.log(drawId);
                 isDown = true;
 
