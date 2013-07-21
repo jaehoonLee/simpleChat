@@ -77,6 +77,9 @@ $(document).ready(function()
 
         socket.on('senddata', function(data){
 
+            context.lineWidth = data.strokeWidth;
+            context.strokeStyle = data.strokeColor;
+
             if(data.points.length != 0 && oldPointData != null)
             {
 //                console.log("oldPoint:" + oldPointData.id+ ":" + data.id)  ;

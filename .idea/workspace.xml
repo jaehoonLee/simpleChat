@@ -10,7 +10,7 @@
     <file path="/chat.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374052940838" ignored="false" />
     <file path="/layout.jade" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1373709776455" ignored="false" />
     <file path="/ioSetting.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1373709560742" ignored="false" />
-    <file path="/canvas.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374421734538" ignored="false" />
+    <file path="/canvas.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374422437510" ignored="false" />
     <file path="/canvas.jade" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1373943412205" ignored="false" />
     <file path="/farbtastic.css" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374319114634" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,7 +35,7 @@
       <file leaf-file-name="canvas.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/canvas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="68" selection-start="4498" selection-end="4498" vertical-scroll-proportion="0.35933807">
+            <state line="80" column="50" selection-start="2844" selection-end="2844" vertical-scroll-proportion="0.74481076">
               <folding />
             </state>
           </provider>
@@ -484,7 +484,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="42" selection-start="1957" selection-end="1968" vertical-scroll-proportion="0.0" />
+        <state line="69" column="42" selection-start="1957" selection-end="1968" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.jade">
@@ -551,7 +553,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/canvas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="68" selection-start="4498" selection-end="4498" vertical-scroll-proportion="0.35933807">
+        <state line="80" column="50" selection-start="2844" selection-end="2844" vertical-scroll-proportion="0.74481076">
           <folding />
         </state>
       </provider>
