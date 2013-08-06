@@ -5,12 +5,12 @@
     <ignored path="simpleChat.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/index.jade" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374320070694" ignored="false" />
-    <file path="/app.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374302505479" ignored="false" />
+    <file path="/app.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1375805432614" ignored="false" />
     <file path="/style.css" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1373945997989" ignored="false" />
     <file path="/chat.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374052940838" ignored="false" />
     <file path="/layout.jade" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1373709776455" ignored="false" />
     <file path="/ioSetting.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1373709560742" ignored="false" />
-    <file path="/canvas.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374422437510" ignored="false" />
+    <file path="/canvas.js" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1375805446274" ignored="false" />
     <file path="/canvas.jade" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1373943412205" ignored="false" />
     <file path="/farbtastic.css" changelist="e2c13433-2b2b-4ff0-8d42-a9b491f0bf05" time="1374319114634" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,10 +32,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="canvas.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="canvas.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/canvas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="47" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
+            <state line="105" column="99" selection-start="3252" selection-end="3252" vertical-scroll-proportion="0.5111857">
               <folding />
             </state>
           </provider>
@@ -50,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="42" selection-start="1957" selection-end="1968" vertical-scroll-proportion="-0.47138047">
+            <state line="79" column="108" selection-start="2066" selection-end="2066" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -137,21 +137,21 @@
         <option value="$PROJECT_DIR$/routes/canvas.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/canvas.jade" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/public/stylesheets/farbtastic.css" />
         <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/public/javascripts/chat.js" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/javascripts/canvas.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
+    <option name="x" value="1911" />
     <option name="y" value="-9" />
     <option name="width" value="1938" />
-    <option name="height" value="1050" />
+    <option name="height" value="1098" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -179,7 +179,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -240,8 +239,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simpleChat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simpleChat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -336,17 +354,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="1911" y="-9" width="1938" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983682" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21952507" sideWeight="0.7123288" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21952507" sideWeight="0.67099565" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28767124" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28767124" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -434,16 +452,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="12" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="61" column="12" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/farbtastic.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="25" selection-start="1358" selection-end="1358" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="48" column="25" selection-start="1358" selection-end="1358" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/images/mask.png">
@@ -464,13 +478,6 @@
     <entry file="file://$PROJECT_DIR$/public/javascripts/chat.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="43" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/canvas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="47" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -503,13 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/canvas.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="3" selection-start="229" selection-end="596" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="236" selection-start="164" selection-end="220" vertical-scroll-proportion="0.0">
@@ -517,9 +517,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/canvas.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="3" selection-start="229" selection-end="596" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="42" selection-start="1957" selection-end="1968" vertical-scroll-proportion="-0.47138047">
+        <state line="79" column="108" selection-start="2066" selection-end="2066" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/canvas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="99" selection-start="3252" selection-end="3252" vertical-scroll-proportion="0.5111857">
           <folding />
         </state>
       </provider>

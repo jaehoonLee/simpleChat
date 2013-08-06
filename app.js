@@ -103,7 +103,7 @@ io.sockets.on('connection', function(socket){
     {
         socket.broadcast.emit('clear');
         socket.emit('clear');
-        client.del('A0');
+        client.del('A'+ data.key);
     });
 
 

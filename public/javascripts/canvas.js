@@ -103,7 +103,7 @@ $(document).ready(function()
 
         $('.clearBtn').click(function()
         {
-            socket.emit('clear');
+            socket.emit('clear', {key : key});
         });
 
         $('#colorpicker').farbtastic(function(data)
