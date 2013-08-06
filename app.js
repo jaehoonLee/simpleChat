@@ -101,7 +101,7 @@ io.sockets.on('connection', function(socket){
 
     socket.on('clear', function(data)
     {
-        socket.broadcast.emit('clear');
+        socket.broadcast.to('A'+ data.key).emit('clear');
         socket.emit('clear');
         client.del('A'+ data.key);
     });
