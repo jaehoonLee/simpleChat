@@ -21,8 +21,8 @@ $(document).ready(function()
         var ratio = 2;
         var key =0;
 
-        var socket = io.connect("http://127.0.0.1:3000/") ;
-//        var socket = io.connect("http://jhun88.cafe24.com:3000/") ;
+//        var socket = io.connect("http://127.0.0.1:3000/") ;
+        var socket = io.connect("http://jhun123.cafe24.com:3000/") ;
 
         socket.on('connect', function()
         {
