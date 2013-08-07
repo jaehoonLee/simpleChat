@@ -61,12 +61,19 @@ io.sockets.on('connection', function(socket){
 
         socket.join("A"+data.key);
 
+//        client.lrange("A"+data.key,0,-1, function(err,reply){
+//            console.log(reply);
+//            socket.emit('canvasSync',reply);
+//        });
+
         client.llen("A"+data.key, function(err,reply){
             for(var j=0;j<reply;j++){
                 client.lindex("A"+data.key,j, function(err,data){
-                    socket.emit('senddata',JSON.parse(data));
+                    socket.emit('canvasSync',JSON.parse(data));
                 });
             }
+
+            console.log("finish");
         });
     });
 
@@ -79,31 +86,18 @@ io.sockets.on('connection', function(socket){
         chatArr.push(data);
     });
 
-    socket.on('redis', function(data){
-//        client.hgetall(0,function(err, reply){console.log(reply.points)});
-    });
-
     socket.on('senddata', function(data){
-        socket.broadcast.to('A'+data.key).emit('senddata', {
-            strokeWidth : data.strokeWidth,
-            strokeColor : data.strokeColor,
-            fillColor : data.fillColor,
-            authorName : data.authorName,
-            authorId : data.authorId,
-            id : data.id,
-            isFill : data.isFill,
-            isErase : data.isErase,
-            points : data.points
-        });
+//        console.log(data);
+        socket.broadcast.to('A'+data.key).emit('senddata', data.datas);
 
-        client.rpush("A"+data.key, JSON.stringify(data,null,4), redis.print);
+        client.rpush("A"+data.key, JSON.stringify(data.datas,null,4), redis.print);
     });
 
     socket.on('clear', function(data)
     {
         socket.broadcast.emit('clear');
         socket.emit('clear');
-        client.del('A0');
+        client.del('A'+data.key);
     });
 
 
